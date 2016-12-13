@@ -10,7 +10,7 @@ module.exports = React.createClass({
 
   render: function() {
     return (
-      <div className="link">
+      <div className="singleLink">
         <h2 className="linkName">
           {this.props.nickName}
         </h2>

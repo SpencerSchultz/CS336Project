@@ -1,8 +1,9 @@
 import React from 'react';
 import $ from 'jquery';
 import Remarkable from 'remarkable';
+import { Link } from 'react-router';
 
-import Link from './link.js';
+import SingleLink from './singleLink.js';
 
 module.exports = React.createClass({
   render: function() {
@@ -15,7 +16,7 @@ module.exports = React.createClass({
         return (
           <div className="tagAndList">
             <p>
-              <tagTag>{link.tag1}</tagTag>  <a href={link.link}>{link.nickName}</a>
+                <Link to={'/' + link._id}>Edit</Link>   <tagTag>{link.tag1}</tagTag>   <a href={link.link}>{link.nickName}</a>
             </p>
             </div>
           );
