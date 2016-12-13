@@ -70,14 +70,14 @@ app.post('/api/links', function(req, res) {
 });
 
 app.get('/api/links/:id', function(req, res) {
-    db.collection('links').find({"id": Number(req.params._id)}).toArray(function(err, docs) {
+    db.collection('links').find({"_id": Number(req.params.id)}).toArray(function(err, docs) {
         if (err) throw err;
         res.json(docs);
     });
 });
 
 app.put('/api/links/:id', function(req, res) {
-    var updateId = Number(req.params._id);
+    updateId = Number(req.params.id);
     var update = req.body;
     db.collection('links').updateOne(
         { _id: updateId },
@@ -93,7 +93,7 @@ app.put('/api/links/:id', function(req, res) {
 
 app.delete('/api/links/:id', function(req, res) {
     db.collection('links').deleteOne(
-        {'id': Number(req.params._id)},
+        {"_id": Number(req.params.id)},
         function(err, result) {
             if (err) throw err;
             db.collection('links').find({}).toArray(function(err, docs) {
