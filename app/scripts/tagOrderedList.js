@@ -19,7 +19,7 @@ module.exports = React.createClass({
         return (
           <div className="tagAndList">
             <p>
-                <Link to={'/' + link._id}>Edit</Link>   <tagTag>{link.tag1}</tagTag>   <a href={link.link} class="nickClass">{link.nickName}</a>
+                <Link to={'/' + link._id}>Edit</Link>   <tagTag>{link.tag1}</tagTag>   <a href={link.link} target="_blank" class="nickClass">{link.nickName}</a>
             </p>
             </div>
           );
