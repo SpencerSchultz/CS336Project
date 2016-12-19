@@ -33,19 +33,19 @@ module.exports = React.createClass({
           placeholder="Actual Link"
           value={this.state.link}
           onChange={this.handleLinkChange}
-        />
+        /><br />
         <input
           type="nickName"
           placeholder="Give it a nick-name"
           value={this.state.nickName}
           onChange={this.handleNickNameChange}
-        />
+        /><br />
         <input
           type="tag1"
           placeholder="Give it a tag"
           value={this.state.tag1}
           onChange={this.handleTag1Change}
-        />
+        /><br />
         <input type="submit" value="Post" />
       </form>
     );

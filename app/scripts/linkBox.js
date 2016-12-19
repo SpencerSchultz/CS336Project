@@ -1,4 +1,5 @@
 import React from 'react';
+import Flexbox from 'flexbox-react';
 import $ from 'jquery';
 
 import TagOrderedList from './tagOrderedList.js';
@@ -58,16 +59,39 @@ module.exports = React.createClass({
   render: function() {
     return (
       <div className="linkBox">
-        <h1>Link DB</h1>
-        <LinkForm onLinkSubmit={this.handleLinkSubmit}/>
-        <FilterBar
-          filterVal={this.state.filterText}
-          handleFilterUpdate={this.handleFilterUpdate}
-        />
-        <TagOrderedList
-          data={this.state.data}
-          filter={this.state.filterText}
-        />
+          {/*MIDDLE SECTION*/}
+          <Flexbox
+              flexDirection="row"
+              justifyContent="center"
+              >
+            {/*MAIN CONTENT*/}
+            <Flexbox flexDirection="column">
+              <div className="search">
+                <FilterBar
+                  filterVal={this.state.filterText}
+                  handleFilterUpdate={this.handleFilterUpdate}
+                />
+              </div>
+              <TagOrderedList
+                data={this.state.data}
+                filter={this.state.filterText}
+              />
+            </Flexbox> {/*MAIN CONTENT END*/}
+            {/*RIGHT COLUMN*/}
+            <Flexbox
+              flexDirection="column"
+              >
+              <h1 className="header">Link DB</h1>
+              <div className="rightColTop">
+                <h4>Tip:</h4>
+                <p>You can delete entire links in the Edit Menu. Just click "Edit" next to a link!</p>
+              </div>
+              <div className="rightCol">
+                <h4>Add a link!</h4>
+                <LinkForm onLinkSubmit={this.handleLinkSubmit}/>
+              </div>
+            </Flexbox> {/*RIGHT COLUMN END*/}
+          </Flexbox> {/*MIDDLE SECTION END*/}
       </div>
     );
   }
