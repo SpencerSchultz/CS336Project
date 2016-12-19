@@ -15,8 +15,9 @@ app.use('/', express.static(APP_PATH));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
+var mongoVar = 'mongodb://cs336:' + process.env.MONGOPASS + '@ds053808.mlab.com:53808/srs27_cs336'
 //connect to mongoDB database
-MongoClient.connect('mongodb://cs336:Bjarne@ds053808.mlab.com:53808/srs27_cs336', function (err, dbConnection) {
+MongoClient.connect(mongoVar, function (err, dbConnection) {
   if (err) throw err;
 
   db = dbConnection;
